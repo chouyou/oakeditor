@@ -4,18 +4,18 @@
 ![image](https://github.com/chouyou/oakeditor/blob/main/img/13.jpg)
 
 ![image](https://github.com/chouyou/oakeditor/blob/main/img/12.jpg)
-<code>
-<--script src="./js/oakeditor/oakeditor.js" charset="utf-8"></script>
-<--link rel="stylesheet" type="text/css" href="./js/oakeditor/oakeditor.css">
+```
+<script src="./js/oakeditor/oakeditor.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="./js/oakeditor/oakeditor.css">
 
-<--h4 class="edit_text_title "><?php echo $this->res['0']['TITLE']; ?><--/h4>
+<h4 class="edit_text_title "><?php echo $this->res['0']['TITLE']; ?><--/h4>
 <!-- 本页关键字编辑部分 ，js更新 -->
-<--h4 class="edit_text_keyword "><--/h4>
-<--div class="edit_text_body ">***<--/div>
+<h4 class="edit_text_keyword "></h4>
+<div class="edit_text_body ">***</div>
 
 /* 富文本编辑器配置及调用 
-*- toolBar:['heading','|','bold','italic','createlink','insertunorderedlist','insertorderedlist','createimg','blockquote',
-*- 'table','undo','redo','code'],
+* toolBar:['heading','|','bold','italic','createlink','insertunorderedlist','insertorderedlist','createimg','blockquote',
+* 'table','undo','redo','code'],
 */
 
 Editor=OakEditor.init({
@@ -35,9 +35,9 @@ upInit = {
   	headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
   	cache: "no-cache"   
 };
-//  页面编辑开关 
+/*   页面编辑开关 */
 isEdit=0;
-//  需要调用编辑器的所有节点 
+/*   需要调用编辑器的所有节点 */
 upkey = document.querySelector('.edit_text_keyword');
 
 function txtedit(e)
@@ -47,7 +47,6 @@ function txtedit(e)
 		upkey.innerHTML=document.querySelector('meta[name="keywords"]').getAttribute('content');
 		Editor.start('[class^="edit_text_"]');
 		e.innerHTML=' 保存 ';
-
 	}else{
 		Editor.clear();
 		e.innerHTML=' 编辑 ';
@@ -61,4 +60,4 @@ function txtedit(e)
 	   upkey.innerHTML='';	
 	}
 };
-</code>
+```
