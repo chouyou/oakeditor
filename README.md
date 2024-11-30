@@ -37,7 +37,7 @@ upInit = {
 };
 /*- 页面编辑开关 */
 isEdit=0;
-/*- 需要调用编辑器的所有节点 */
+/*. 需要调用编辑器的所有节点 */
 upkey = document.querySelector('.edit_text_keyword');
 
 function txtedit(e)
