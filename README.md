@@ -13,18 +13,22 @@ upInit = {
   	//	headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
   	cache: "no-cache"   
 };
+
+
+
 /* 页面编辑开关 */
 isEdit=0;
 /* 需要调用编辑器的所有节点，依据需求编写*/
-upkey = document.querySelector('.edit_text_keyword');
+
+
 function txtedit(e)
 {
 	isEdit=!isEdit;
 	if(isEdit){
 		upkey.innerHTML=document.querySelector('meta[name="keywords"]').getAttribute('content');
-		Editor.start('[class^="edit_text_"]')
+		Editor.start('[class^="edit_text_"]');
 		e.innerHTML=' 保存 ';
-	
+
 	}else{
 		Editor.clear();
 		e.innerHTML=' 编辑 ';
