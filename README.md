@@ -1,25 +1,22 @@
 # oakeditor
 网页在线编辑器，css用的ck的，ck的编辑器太臃肿了，就按组自己的需求用原生js重写了。
+<code>
+<--script src="./js/oakeditor/oakeditor.js" charset="utf-8"></script>
 
-<script src="./js/oakeditor/oakeditor.js" charset="utf-8"></script>
-<link rel="stylesheet" type="text/css" href="./js/oakeditor/oakeditor.css">
+<--link rel="stylesheet" type="text/css" href="./js/oakeditor/oakeditor.css">
 
-<div class="edit_text_body ">***</div>
-
+<--div class="edit_text_body ">***<--/div>
 
 upInit = {
 	method: "POST",
   	credentials: "include",
-  	//	headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
+  	headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
   	cache: "no-cache"   
 };
-
-
-
 /* 页面编辑开关 */
 isEdit=0;
-/* 需要调用编辑器的所有节点，依据需求编写*/
-
+/* 需要调用编辑器的所有节点 */
+upkey = document.querySelector('.edit_text_keyword');
 
 function txtedit(e)
 {
@@ -42,3 +39,4 @@ function txtedit(e)
 	   upkey.innerHTML='';	
 	}
 };
+</code>
