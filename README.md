@@ -1,5 +1,6 @@
 # oakeditor
 网页在线编辑器，css用的ck的，ck的编辑器太臃肿了，就按组自己的需求用原生js重写了。
+![image](https://github.com/chouyou/oakeditor/blob/main/img/12.jpg)
 <code>
 <--script src="./js/oakeditor/oakeditor.js" charset="utf-8"></script>
 
