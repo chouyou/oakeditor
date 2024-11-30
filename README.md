@@ -6,9 +6,11 @@
 ![image](https://github.com/chouyou/oakeditor/blob/main/img/12.jpg)
 <code>
 <--script src="./js/oakeditor/oakeditor.js" charset="utf-8"></script>
-
 <--link rel="stylesheet" type="text/css" href="./js/oakeditor/oakeditor.css">
 
+<--h4 class="edit_text_title "><?php echo $this->res['0']['TITLE']; ?><--/h4>
+<!-- 本页关键字编辑部分 ，js更新 -->
+<--h4 class="edit_text_keyword "><--/h4>
 <--div class="edit_text_body ">***<--/div>
 
 upInit = {
