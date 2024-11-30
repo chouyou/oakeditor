@@ -13,6 +13,20 @@
 <--h4 class="edit_text_keyword "><--/h4>
 <--div class="edit_text_body ">***<--/div>
 
+* 富文本编辑器配置及调用 
+* toolBar:['heading','|','bold','italic','createlink','insertunorderedlist','insertorderedlist','createimg','blockquote','table','undo','redo','code'],
+*/
+Editor=OakEditor.init({
+	height:'2em',
+	postVarsPerFile:{'id':'<?php echo $this->res['0']['ID']?>','pid':'<?php echo $this->res['0']['PID']?>'},
+	uploadURL:document.baseURI+'index.php/upload/write',
+	downURL:document.baseURI+'getfile.php',
+	delURL   :document.baseURI+'index.php/upload/del',
+	listURL  :document.baseURI+'index.php/upload/ls',
+	fileView :"#image_output",
+	//toolBar:['bold','italic','insertunorderedlist','insertorderedlist',],
+})
+
 upInit = {
 	method: "POST",
   	credentials: "include",
