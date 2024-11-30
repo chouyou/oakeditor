@@ -13,9 +13,10 @@
 <--h4 class="edit_text_keyword "><--/h4>
 <--div class="edit_text_body ">***<--/div>
 
-/*  富文本编辑器配置及调用 
-*   toolBar:['heading','|','bold','italic','createlink','insertunorderedlist','insertorderedlist','createimg','blockquote','table','undo','redo','code'],
+/* 富文本编辑器配置及调用 
+* toolBar:['heading','|','bold','italic','createlink','insertunorderedlist','insertorderedlist','createimg','blockquote','table','undo','redo','code'],
 */
+
 Editor=OakEditor.init({
 	height:'2em',
 	postVarsPerFile:{'id':'<?php echo $this->res['0']['ID']?>','pid':'<?php echo $this->res['0']['PID']?>'},
