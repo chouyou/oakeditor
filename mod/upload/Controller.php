@@ -86,8 +86,7 @@ class upload_Controller extends Controller{
             curl_setopt($ch, CURLOPT_HEADER,0); 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER,1); 
             curl_setopt($ch, CURLOPT_TIMEOUT,300); 
-            //设置用户名和密码 
-            //curl_setopt($ch, CURLOPT_USERPWD,"yuejide:123456"); 
+           
             curl_setopt($ch,CURLOPT_FILE,$fh); 
             $rtn = curl_exec($ch); 
             fclose($fh); 
