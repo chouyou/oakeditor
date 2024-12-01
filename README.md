@@ -4,6 +4,60 @@
 ![image](https://github.com/chouyou/oakeditor/blob/main/img/13.jpg)
 
 ![image](https://github.com/chouyou/oakeditor/blob/main/img/12.jpg)
+# 新建
+```
+script src="./js/oakeditor/oakeditor.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="./js/oakeditor/oakeditor.css">
+    <form id="form1" name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']?>" onsubmit="return data_check()">
+    <p><input type="text" name="title" autocomplete="off" placeholder='标 题' style='width:100%;' /></p>
+    <p><input type="text" name="keyword" autocomplete="off" value='关键字' style='width:100%;' /></p>
+    <input name="id" type="hidden" value="<?php echo $this->id;?>" />
+    <input name="pid" type="hidden" value="<?php echo $this->pid;?>" />
+    <textarea  rows="20" cols ="60" id="editor" name="body"></textarea>
+    
+    <input type="submit" name="Submit" value="提交" />
+    </form>
+    <div id ="image_output"></div>
+<script>
+window.onload=function(){
+    /* 配置富文本编辑器 */
+    oakedit=OakEditor.init({
+        postVarsPerFile:{'id':form1.id.value,'pid':form1.pid.value},
+        height:"20rem", //document.body.offsetHeight+'px',
+        uploadURL:document.baseURI+'index.php/upload/write',
+        downURL:'getfile.php',
+        delURL   :document.baseURI+'index.php/upload/del',
+        listURL  :document.baseURI+'index.php/upload/ls',
+        fileView :"#image_output",
+        submit:document.form1.Submit
+    });
+    oakedit.render('#editor');
+};
+
+/*  */
+function data_check(e){
+    document.form1.querySelectorAll('input,textarea').forEach(i=>{if(i.value.length<1)return false})
+    return true;
+}
+/* 删除上传的无用文件及目录 */
+function delfile(e){
+    //let form1data = new FormData(document.form1);
+    let form1data = new FormData();
+    form1data.append('file_check','1');
+    form1data.append('id',document.form1.id.value);
+    form1data.append('pid',document.form1.pid.value);
+    let ajaxInit = {
+	        method: "POST",
+  			credentials: "include",	
+  			body: form1data,
+    };
+    setTimeout(fetch(document.URL,ajaxInit),100);
+}
+//window.addEventListener('beforeunload',delfile);
+window.addEventListener('unload',delfile);
+</script>
+```
+# 编辑
 ```
 <script src="./js/oakeditor/oakeditor.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="./js/oakeditor/oakeditor.css">
