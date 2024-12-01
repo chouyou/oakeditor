@@ -1,0 +1,36 @@
+
+<html>
+    <head>
+        <script src="../oakeditor/oakeditor.js" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" href="../oakeditor/oakeditor.css">
+        <link rel="stylesheet" type="text/css" href="../tabs.css" />
+    </head>
+    <body>
+
+    <br>
+    <form id="form1" name="form1" method="post" action="" >
+    <input name="id" type="hidden" value="2" />
+    <input name="pid" type="hidden" value="1" />
+    <textarea  rows="20" cols ="60" id="editor" name="body">123</textarea>
+    </form>
+    <div id ="image_output"></div>
+
+</body>
+</html>
+<script>
+window.onload=function(){
+    /* 配置富文本编辑器 */
+    oakedit=OakEditor.init({
+        postVarsPerFile:{'id':form1.id.value,'pid':form1.pid.value},
+        height:"10rem", //document.body.offsetHeight+'px',
+        uploadURL:document.baseURI+'index.php/upload/write',
+        downURL:'getfile.php',
+        delURL   :document.baseURI+'index.php/upload/del',
+        listURL  :document.baseURI+'index.php/upload/ls',
+        fileView :"#image_output",
+    });
+    oakedit.render('#editor');
+   
+};
+
+</script>

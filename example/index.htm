@@ -1,0 +1,72 @@
+<html>
+	<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="关键字-Click me" />
+</head>
+<body>
+	<script src="../oakeditor/oakeditor.js" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="./tabs.css">
+	<link rel="stylesheet" type="text/css" href="../oakeditor/oakeditor.css">
+	
+<section>
+	<!-- 文章标题输出及编辑  -->
+	<h4 class="edit_text_title ">我是标题-Click me</h4>
+	<!-- 本页关键字编辑部分 ，js更新 -->
+	<h4 class="edit_text_keyword "></h4>
+	<div>
+	</div>
+	<!-- 文章主体输出及编辑 -->
+	<div class="edit_text_body ck-content">我是文章-Click me</div>
+	<div id ="image_output"></div>
+	<!-- 评论模块输出 -->
+   
+</section>
+<!-- 正文  end -->
+	
+</body>
+</html>
+<script>
+/* 富文本编辑器配置及调用 
+* toolBar:['heading','|','bold','italic','createlink','insertunorderedlist','insertorderedlist','createimg','blockquote','table','undo','redo','code'],
+*/
+Editor=OakEditor.init({
+	height:'2em',
+	postVarsPerFile:{'id':'1','pid':'2'},
+	uploadURL:document.baseURI+'index.php/upload/write',
+	downURL:document.baseURI+'getfile.php',
+	delURL   :document.baseURI+'index.php/upload/del',
+	listURL  :document.baseURI+'index.php/upload/ls',
+	
+	fileView :"#image_output",
+	//toolBar:['bold','italic','insertunorderedlist','insertorderedlist',],
+})
+/* 编辑 与 删除 的 fetch 初始化对象 
+
+*/
+
+/* 页面编辑开关 */
+isEdit=0;
+/* 需要调用编辑器的所有节点 */
+upkey = document.querySelector('.edit_text_keyword');
+function txtedit(e)
+{
+	isEdit=!isEdit;
+	if(isEdit){
+		upkey.innerHTML=document.querySelector('meta[name="keywords"]').getAttribute('content');
+		Editor.start('[class^="edit_text_"]')
+		
+	
+	}else{
+		Editor.clear();
+		e.innerHTML=' 编辑 ';
+		upInit.body = new FormData();
+		upInit.body.append('title',document.querySelector('.edit_text_title').textContent);
+		upInit.body.append('keyword',document.querySelector('.edit_text_keyword').textContent);
+		upInit.body.append('body',document.querySelector('.edit_text_body').innerHTML);
+		
+	   upkey.innerHTML='';	
+	}
+};
+txtedit();
+</script>
